@@ -12,10 +12,7 @@ export function DetailInfoCharacters() {
 			<div>
 				<div className="row justify-content-md-center">
 					<div className="col-md-6 col-lg-5 mb-4">
-						<img
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh3rDeGqhfMHdVCkogR1csg3lVCVXv5PQ09Q&usqp=CAU"
-							style={{ width: "100%", height: "400px" }}
-						/>
+						<img src="http://placehold.jp/400x400.png" />
 					</div>
 					<div className="col-md-6 col-lg-5 text-center row mb-4">
 						<div className="align-self-center">

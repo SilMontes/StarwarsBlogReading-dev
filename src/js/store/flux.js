@@ -8,21 +8,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			getCharacters: async () => {
 				const store = getStore();
-				await fetch("https://www.swapi.tech/api/people/")
+				await fetch("https://swapi.dev/api/people/")
 					.then(resp => resp.json())
 					.then(respInfo => {
 						setStore({ ...store, characters: respInfo.results });
-						console.log(store.characters);
+						//console.log("People", store.characters);
 					})
 					.catch(error => console.error("Error request people: ", error));
 			},
 			getPlanets: async () => {
 				const store = getStore();
-				await fetch("https://www.swapi.tech/api/planets/")
+				await fetch("https://swapi.dev/api/planets/")
 					.then(resp => resp.json())
 					.then(respInfoPlanets => {
 						setStore({ ...store, planets: respInfoPlanets.results });
-						console.log(store.planets);
+						//console.log("Planets", store.planets);
 					})
 					.catch(error => console.error("Error request people: ", error));
 			},
@@ -35,6 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						//2.Accedo al objeto favorito
 						//3.Accedo a todo lo que hay favoritos y le agrego name
 						setStore({ ...store, favorites: [...store.favorites, { name }] });
+						//console.log("Planets", store.planets);
 					}
 				});
 			},

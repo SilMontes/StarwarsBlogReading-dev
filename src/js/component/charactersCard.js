@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -11,10 +11,7 @@ export function CharactersCard() {
 				//console.log("person", person);
 				return (
 					<div className="card custom-card test my-4" key={index}>
-						<img
-							className="card-img-top"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh3rDeGqhfMHdVCkogR1csg3lVCVXv5PQ09Q&usqp=CAU"
-						/>
+						<img className="card-img-top" src="http://placehold.jp/400x300.png" />
 						<div className="card-body">
 							<h5 className="card-title text-left">{person.name}</h5>
 							<div className="card-text text-left">
