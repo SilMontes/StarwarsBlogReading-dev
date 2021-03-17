@@ -8,41 +8,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			getCharacters: async () => {
 				const store = getStore();
-				const requestResponse = await fetch("https://www.swapi.tech/api/people/");
-				if (requestResponse.status == "200") {
-					const requestData = await requestResponse.json();
-					//console.log("Request Characters", requestData);
-					let charactersInfo = [];
-					requestData.results.forEach(person => {
-						fetch(person.url)
-							.then(responsePerson => responsePerson.json())
-							.then(personData => {
-								charactersInfo.push(personData.result.properties);
-							});
-					});
-					setStore({ ...store, characters: charactersInfo });
-					//console.log("Characters Info", charactersInfo);
-					console.log("Characters object", store.characters);
-				} else console.log("Error request: ", requestResponse.status);
+				await fetch("https://www.swapi.tech/api/people/")
+					.then(resp => resp.json())
+					.then(respInfo => {
+						setStore({ ...store, characters: respInfo.results });
+						console.log(store.characters);
+					})
+					.catch(error => console.error("Error request people: ", error));
 			},
 			getPlanets: async () => {
 				const store = getStore();
-				const requestResp = await fetch("https://www.swapi.tech/api/planets/");
-				if (requestResp.status == "200") {
-					const reqDataPlanets = await requestResp.json();
-					//console.log("Request Planets", reqDataPlanets);
-					let planetsInfo = [];
-					reqDataPlanets.results.forEach(planet => {
-						fetch(planet.url)
-							.then(responsePlanet => responsePlanet.json())
-							.then(planetData => {
-								planetsInfo.push(planetData.result.properties);
-							});
-					});
-					setStore({ ...store, planets: planetsInfo });
-					//console.log("Planets Info", planetsInfo);
-					console.log("Planets object", store.planets);
-				} else console.log("Error requestPlanets", requestResp.status);
+				await fetch("https://www.swapi.tech/api/planets/")
+					.then(resp => resp.json())
+					.then(respInfoPlanets => {
+						setStore({ ...store, planets: respInfoPlanets.results });
+						console.log(store.planets);
+					})
+					.catch(error => console.error("Error request people: ", error));
 			},
 			addToFavorites: name => {
 				const store = getStore();

@@ -37,7 +37,7 @@ export function DetailInfoPlanet() {
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
 						<p>Climat</p>
-						<p>{store.planets[params.planetid].climate}r</p>
+						<p>{store.planets[params.planetid].climate}</p>
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
 						<p>Population</p>

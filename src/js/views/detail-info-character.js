@@ -37,7 +37,7 @@ export function DetailInfoCharacters() {
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
 						<p>Birth Year</p>
-						<p>{store.characters[params.characterid].birth_year}r</p>
+						<p>{store.characters[params.characterid].birth_year}</p>
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
 						<p>Gender</p>

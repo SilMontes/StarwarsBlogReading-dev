@@ -39,11 +39,6 @@ export const Navbar = () => {
 					})
 				)}
 			</DropdownButton>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
 		</nav>
 	);
 };
