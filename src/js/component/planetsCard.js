@@ -5,6 +5,14 @@ import { Link } from "react-router-dom";
 export function PlanetsCard() {
 	const { store, actions } = useContext(Context);
 	//console.log("Fav", store.favorites);
+	const changeIconColor = name => {
+		const validate = store.favorites.findIndex(element => element == name);
+		if (validate === -1) {
+			return <i className="fas fa-heart" style={{ color: "yellow" }} />;
+		} else {
+			return <i className="fas fa-heart" style={{ color: " red " }} />;
+		}
+	};
 	return (
 		<div className="d-flex flex-nowrap overflow-auto">
 			{store.planets.map((planet, index) => {
@@ -26,7 +34,7 @@ export function PlanetsCard() {
 									onClick={() => {
 										actions.addToFavoritesPlanets(planet.name);
 									}}>
-									<i className="fas fa-heart" />
+									{changeIconColor(planet.name)}
 								</div>
 							</div>
 						</div>

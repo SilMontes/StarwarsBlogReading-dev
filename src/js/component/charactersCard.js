@@ -5,6 +5,14 @@ import { Context } from "../store/appContext";
 export function CharactersCard() {
 	const { store, actions } = useContext(Context);
 	//console.log("Fav", store.favorites);
+	const changeIconColor = name => {
+		const validate = store.favorites.findIndex(element => element == name);
+		if (validate === -1) {
+			return <i className="fas fa-heart" style={{ color: "yellow" }} />;
+		} else {
+			return <i className="fas fa-heart" style={{ color: " red " }} />;
+		}
+	};
 	return (
 		<div className="d-flex flex-nowrap overflow-auto">
 			{store.characters.map((person, index) => {
@@ -30,7 +38,7 @@ export function CharactersCard() {
 									onClick={() => {
 										actions.addToFavorites(person.name);
 									}}>
-									<i className="fas fa-heart" />
+									{changeIconColor(person.name)}
 								</div>
 							</div>
 						</div>

@@ -27,11 +27,11 @@ export const Navbar = () => {
 					store.favorites.map((favItem, ind) => {
 						return (
 							<NavDropdown.Item key={ind}>
-								{favItem.name}
+								{favItem}
 								<i
 									className="fas fa-trash-alt"
 									onClick={() => {
-										actions.deleteFavorite(favItem.name);
+										actions.deleteFavorite(favItem);
 									}}
 								/>
 							</NavDropdown.Item>
